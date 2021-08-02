@@ -16,6 +16,7 @@ import javax.persistence.Version;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -45,6 +46,9 @@ public class KorisnikNalogEntity {
 
 	@Column(name="password")
 	@NotNull (message = "Password mora bit unet")
+	@Pattern(regexp = "^[A-Za-z0-9]*$", message="Lozinka nije ispravno uneta, mogu biti samo slova i brojevi")
+	//For example [a-zA-Z0-9]+ is a pattern that matches against a string of any length
+	@Size(min=5, message = "Password mora biti {min} karaktera dužine ili veći.")
 	private String password;
 	
 	@JsonView(Views.ucenik.class)
