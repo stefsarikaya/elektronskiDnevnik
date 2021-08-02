@@ -45,8 +45,6 @@ public class KorisnikNalogEntity {
 
 	@Column(name="password")
 	@NotNull (message = "Password mora bit unet")
-	//@Pattern(regexp = "^[A-Za-z0-9]*$", message="Password is not valid, must contin only letters and numbers.")
-	//@Size(min=5, message = "Password must be {min} characters long or higher.")
 	private String password;
 	
 	@JsonView(Views.ucenik.class)
